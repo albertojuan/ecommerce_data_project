@@ -5,7 +5,7 @@
         SELECT
           date,
           sumMerge(total_sales) total_sales
-        FROM top_products_view
+        FROM top_products_view__v1
         GROUP BY date
         HAVING total_sales < 0
 - products_by_date:
