@@ -5,21 +5,18 @@
         SELECT
           date,
           sumMerge(total_sales) total_sales
-        FROM top_products_view
+        FROM top_products_view__v1
         GROUP BY date
         HAVING total_sales < 0
 - products_by_date:
     max_bytes_read: null
     max_time: null
     sql: |
-        SELECT 
-          date,
-          count() total
-        FROM top_products
-        GROUP BY date
-        HAVING total < 0
+        SELECT 1
+          FROM top_products
+        HAVING count() = 0
     pipe:
       name: top_products
       params:
-        date_start: '2020-04-24'
-        date_end: '2020-04-25'
+        date_start: '2020-01-01'
+        date_end: '2020-12-31'
